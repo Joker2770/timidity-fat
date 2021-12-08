@@ -203,6 +203,7 @@ parts:
       - --enable-network
       - --with-default-path=/etc/timidity
     stage-packages:
+      - zenity
       - tcl8.6
       - tk8.6
       - libtcl8.6
@@ -236,6 +237,4 @@ parts:
       source-type: git
       organize:
         "launcher.sh" : usr/local/bin/
-      stage-packages:
-        - zenity
 
