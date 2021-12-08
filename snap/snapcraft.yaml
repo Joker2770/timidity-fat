@@ -68,6 +68,7 @@ apps:
     command: usr/local/bin/launcher.sh
     environment:
       LD_LIBRARY_PATH: ${SNAP}/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio
+    extensions: [gnome-3-28]
     plugs:
       - home
       - audio-playback
