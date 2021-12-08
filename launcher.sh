@@ -21,13 +21,12 @@ else
 fi
 
 while [ $RET -eq 0 ]; do
-  PROCESS=$(zenity --width=500 --height=350 --list \
+  PROCESS=$(zenity --width=500 --height=310 --list \
     --title="Choose the soundfont to launch" \
     --column="cfg name" --column="Description" \
     freepats "Free patch set for MIDI audio synthesis" \
     fluidr3_gm "Fluid (R3) General MIDI SoundFont (GM)" \
     fluidr3_gs "Fluid (R3) General MIDI SoundFont (GS)" \
-    ms_general "General SoundFont from MuseScore (uncompressed)" \
     opl3 "OPL3 SoundFont that simulates the sound of an OPL3 chip" \
     timgm6mb "TimGM6mb SoundFont from MuseScore 1.3" \
     website "https://sourceforge.net/projects/timidity/" )

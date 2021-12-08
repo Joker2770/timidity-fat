@@ -25,23 +25,23 @@ architectures:
   # - build-on: armhf
   # - build-on: s390x
 
-plugs:
-  gtk-2-engines:
-    interface: content
-    target: $SNAP/lib/gtk-2.0
-    default-provider: gtk2-common-themes
-  gtk-2-themes:
-    interface: content
-    target: $SNAP/data-dir/themes
-    default-provider: gtk-common-themes
-  icon-themes:
-    interface: content
-    target: $SNAP/data-dir/icons
-    default-provider: gtk-common-themes
-  sound-themes:
-    interface: content
-    target: $SNAP/data-dir/sounds
-    default-provider: gtk-common-themes
+# plugs:
+  # gtk-2-engines:
+    # interface: content
+    # target: $SNAP/lib/gtk-2.0
+    # default-provider: gtk2-common-themes
+  # gtk-2-themes:
+    # interface: content
+    # target: $SNAP/data-dir/themes
+    # default-provider: gtk-common-themes
+  # icon-themes:
+    # interface: content
+    # target: $SNAP/data-dir/icons
+    # default-provider: gtk-common-themes
+  # sound-themes:
+    # interface: content
+    # target: $SNAP/data-dir/sounds
+    # default-provider: gtk-common-themes
 
 environment:
   LC_ALL: C.UTF-8
@@ -64,10 +64,11 @@ environment:
 
 apps:
   timidity-fat:
-    command-chain: ["snap/command-chain/alsa-launch", "bin/desktop-launch"]
+    command-chain: ["snap/command-chain/alsa-launch"]
     command: usr/local/bin/launcher.sh
     environment:
       LD_LIBRARY_PATH: ${SNAP}/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio
+    extensions: [gnome-3-28]
     plugs:
       - home
       - audio-playback
@@ -83,7 +84,7 @@ apps:
       - x11
       - opengl
       - removable-media
-      - gsettings
+      # - gsettings
   cli:
     command-chain: ["snap/command-chain/alsa-launch", "bin/desktop-launch"]
     command: usr/local/bin/timidity
@@ -213,7 +214,7 @@ parts:
       - freepats
       - fluid-soundfont-gm
       - fluid-soundfont-gs
-      - musescore-general-soundfont
+      # - musescore-general-soundfont
       - opl3-soundfont
       - timgm6mb-soundfont
       - libmodplug1
