@@ -20,10 +20,10 @@ confinement: strict # use 'strict' once you have the right plugs and slots
 base: core18
 license: 'GPL-2.0'
 architectures:
-  - build-on: i386
+  # - build-on: i386
   - build-on: amd64
-  - build-on: armhf
-  - build-on: s390x
+  # - build-on: armhf
+  # - build-on: s390x
 
 plugs:
   gtk-2-engines:

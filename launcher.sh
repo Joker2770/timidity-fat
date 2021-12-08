@@ -1,5 +1,7 @@
 #!/bin/sh
 
+xhost +
+
 SCRIPT_DIR=$( cd ${0%/*} && pwd -P )
 
 RET=0
