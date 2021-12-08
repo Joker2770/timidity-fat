@@ -40,7 +40,7 @@ while [ $RET -eq 0 ]; do
      else
        if [ "$PROCESS" != "" ]; then
           cd "$SCRIPT_DIR"
-          timidity -$GUI_INTERFACE -c $SNAP/etc/timidity/$PROCESS.cfg
+          ./timidity -$GUI_INTERFACE -c $SNAP/etc/timidity/$PROCESS.cfg
        fi
      fi
   fi
