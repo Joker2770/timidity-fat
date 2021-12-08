@@ -208,6 +208,11 @@ parts:
       - libtcl8.6
       - libtk8.6
       - freepats
+      - fluid-soundfont-gm
+      - fluid-soundfont-gs
+      - musescore-general-soundfont
+      - opl3-soundfont
+      - timgm6mb-soundfont
       - libmodplug1
       - libopusfile0
       - libpulse0
@@ -221,7 +226,6 @@ parts:
       - libxm4
       - libsm6
       - libice6
-      # - timgm6mb-soundfont
 
     include-launcher:
       after: [timidity-fat]
@@ -234,3 +238,4 @@ parts:
         "launcher.sh" : usr/local/bin/
       stage-packages:
         - zenity
+
