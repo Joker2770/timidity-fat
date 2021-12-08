@@ -205,7 +205,6 @@ parts:
       - --enable-network
       - --with-default-path=/etc/timidity
     stage-packages:
-      - zenity
       - tcl8.6
       - tk8.6
       - libtcl8.6
@@ -230,13 +229,15 @@ parts:
       - libsm6
       - libice6
 
-    include-launcher:
-      after: [timidity-fat]
-      plugin: dump
-      source: "https://github.com/Joker2770/timidity-fat.git"
-      source-depth: 1
-      source-branch: main
-      source-type: git
-      organize:
-        "launcher.sh" : usr/local/bin/
+  include-launcher:
+    after: [timidity-fat]
+    plugin: dump
+    source: "https://github.com/Joker2770/timidity-fat.git"
+    source-depth: 1
+    source-branch: main
+    source-type: git
+    organize:
+      "launcher.sh" : usr/local/bin/
+    stage-packages:
+      - zenity
 
