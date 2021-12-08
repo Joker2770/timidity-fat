@@ -26,10 +26,6 @@ architectures:
   - build-on: s390x
 
 plugs:
-  gtk-2-engines:
-    interface: content
-    target: $SNAP/lib/gtk-2.0
-    default-provider: gtk2-common-themes
   gtk-2-themes:
     interface: content
     target: $SNAP/data-dir/themes
@@ -64,7 +60,7 @@ environment:
 
 apps:
   timidity-fat:
-    command-chain: ["snap/command-chain/alsa-launch", "bin/desktop-launch"]
+    command-chain: ["snap/command-chain/alsa-launch"]
     command: usr/local/bin/launcher.sh
     environment:
       LD_LIBRARY_PATH: ${SNAP}/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio
