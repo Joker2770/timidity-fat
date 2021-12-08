@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=2.15.0
+Encoding=UTF-8
+Comment=Software sound renderer (MIDI sequencer, MOD player)
+Name=timidity-fat
+Terminal=false
+Type=Application
+Exec=timidity-fat
+Categories=AudioVideo;Audio;Sequencer;
+MimeType=audio/midi;audio/x-mod;
+Keywords=midi;sequencer
+Icon=${SNAP}/meta/gui/timidity-fat.png
