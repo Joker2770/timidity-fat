@@ -241,4 +241,5 @@ parts:
       "launcher.sh" : usr/local/bin/
     stage-packages:
       - zenity
+      - x11-xserver-utils
 
