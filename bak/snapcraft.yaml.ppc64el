@@ -19,6 +19,10 @@ grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
 base: core18
 license: 'GPL-2.0'
+
+# this line enables LZO compression for the snap
+compression: lzo
+
 architectures:
   - build-on: ppc64el
 
@@ -45,16 +49,14 @@ plugs:
     default-provider: gtk-common-themes
 
 environment:
-  LC_ALL: C.UTF-8
   # Fallback to XWayland if running in a Wayland session.
   DISABLE_WAYLAND: 1
+  LD_LIBRARY_PATH: ${SNAP}/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio
 
 apps:
   timidity-fat:
     command-chain: ["snap/command-chain/alsa-launch", "bin/desktop-launch"]
     command: usr/local/bin/launcher.sh
-    environment:
-      LD_LIBRARY_PATH: ${SNAP}/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio
     plugs:
       - home
       - audio-playback
@@ -74,8 +76,6 @@ apps:
   cli:
     command-chain: ["snap/command-chain/alsa-launch", "bin/desktop-launch"]
     command: usr/local/bin/timidity
-    environment:
-      LD_LIBRARY_PATH: ${SNAP}/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio
     plugs:
       - home
       - audio-playback
