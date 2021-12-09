@@ -20,47 +20,37 @@ confinement: strict # use 'strict' once you have the right plugs and slots
 base: core18
 license: 'GPL-2.0'
 architectures:
-  # - build-on: i386
+  - build-on: i386
   - build-on: amd64
-  # - build-on: armhf
-  # - build-on: s390x
+  - build-on: armhf
+  - build-on: s390x
 
-# plugs:
-  # gtk-2-engines:
-    # interface: content
-    # target: $SNAP/lib/gtk-2.0
-    # default-provider: gtk2-common-themes
-  # gtk-2-themes:
-    # interface: content
-    # target: $SNAP/data-dir/themes
-    # default-provider: gtk-common-themes
-  # icon-themes:
-    # interface: content
-    # target: $SNAP/data-dir/icons
-    # default-provider: gtk-common-themes
-  # sound-themes:
-    # interface: content
-    # target: $SNAP/data-dir/sounds
-    # default-provider: gtk-common-themes
+plugs:
+  gtk-2-engines:
+    interface: content
+    target: $SNAP/lib/gtk-2.0
+    default-provider: gtk2-common-themes
+  gtk-2-themes:
+    interface: content
+    target: $SNAP/data-dir/themes
+    default-provider: gtk-common-themes
+  gtk-3-themes:
+    interface: content
+    target: $SNAP/data-dir/themes
+    default-provider: gtk-common-themes
+  icon-themes:
+    interface: content
+    target: $SNAP/data-dir/icons
+    default-provider: gtk-common-themes
+  sound-themes:
+    interface: content
+    target: $SNAP/data-dir/sounds
+    default-provider: gtk-common-themes
 
 environment:
   LC_ALL: C.UTF-8
   # Fallback to XWayland if running in a Wayland session.
   DISABLE_WAYLAND: 1
-  # TCLTK_BPATH: $SNAP/usr/share/tcltk
-  # TCL_LIBRARY: $TCLTK_BPATH/tcl8.6:$TCL_LIBRARY
-  # TK_LIBRARY: $TCLTK_BPATH/tk8.6:$TK_LIBRARY
-  # TCLLIBPATH: $SNAP/usr/lib/tcltk:$SNAP/usr/lib/tcltk/${SNAPCRAFT_ARCH_TRIPLET}:$TCLLIBPATH
-  # --- Prep GDK, GTK, Clutter ---
-  GDK_PIXBUF_BINARY_VERSION: '2.10.0' # FIXME: how to get this from installed version ?
-  # GDK_BACKEND: wayland
-  # CLUTTER_BACKEND: wayland
-  # FIXME: loaders.cache should be created after install/refresh
-  GDK_PIXBUF_MODULEDIR: ${SNAP}/usr/lib/${SNAPCRAFT_ARCH_TRIPLET}/gdk-pixbuf-2.0/${GDK_PIXBUF_BINARY_VERSION}/loaders/
-  # FIXME: generate loaders.cache file ?!
-  # with: gdk-pixbuf-query-loaders > $libdir/gdk-pixbuf-2.0/$binary_version/loaders.cache
-  # GDK_PIXBUF_MODULE_FILE: ${SNAP}/usr/lib/${SNAPCRAFT_ARCH_TRIPLET}/gdk-pixbuf-2.0/${GDK_PIXBUF_BINARY_VERSION}/loaders.cache
-  GDK_PIXBUF_MODULE_FILE: ${SNAP_USER_COMMON}/gdk-pixbuf-2.0/${GDK_PIXBUF_BINARY_VERSION}/loaders.cache
 
 apps:
   timidity-fat:
@@ -68,7 +58,6 @@ apps:
     command: usr/local/bin/launcher.sh
     environment:
       LD_LIBRARY_PATH: ${SNAP}/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio
-    extensions: [gnome-3-28]
     plugs:
       - home
       - audio-playback
@@ -84,7 +73,7 @@ apps:
       - x11
       - opengl
       - removable-media
-      # - gsettings
+      - gsettings
   cli:
     command-chain: ["snap/command-chain/alsa-launch", "bin/desktop-launch"]
     command: usr/local/bin/timidity
