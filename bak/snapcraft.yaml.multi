@@ -4,7 +4,7 @@ version: '2.15.0' # just for humans, typically '1.2+git' or '1.3.2'
 summary: TiMidity++ is an open source MIDI to WAVE converter and player. # 79 char long summary
 description: |
   TiMidity++ with more optional soundfonts: freepats, fluidr3_gm,
-  fluidr3_gs, ms_general, opl3, timgm6mb.
+  fluidr3_gs, opl3, timgm6mb.
   
   TiMidity++ is a software synthesizer. It can play MIDI files by converting 
   them into PCM waveform data; give it a MIDI data along with digital 
@@ -34,6 +34,10 @@ plugs:
     interface: content
     target: $SNAP/data-dir/themes
     default-provider: gtk-common-themes
+  gtk-3-themes:
+    interface: content
+    target: $SNAP/data-dir/themes
+    default-provider: gtk-common-themes
   icon-themes:
     interface: content
     target: $SNAP/data-dir/icons
@@ -47,20 +51,6 @@ environment:
   LC_ALL: C.UTF-8
   # Fallback to XWayland if running in a Wayland session.
   DISABLE_WAYLAND: 1
-  # TCLTK_BPATH: $SNAP/usr/share/tcltk
-  # TCL_LIBRARY: $TCLTK_BPATH/tcl8.6:$TCL_LIBRARY
-  # TK_LIBRARY: $TCLTK_BPATH/tk8.6:$TK_LIBRARY
-  # TCLLIBPATH: $SNAP/usr/lib/tcltk:$SNAP/usr/lib/tcltk/${SNAPCRAFT_ARCH_TRIPLET}:$TCLLIBPATH
-  # --- Prep GDK, GTK, Clutter ---
-  GDK_PIXBUF_BINARY_VERSION: '2.10.0' # FIXME: how to get this from installed version ?
-  GDK_BACKEND: wayland
-  CLUTTER_BACKEND: wayland
-  # FIXME: loaders.cache should be created after install/refresh
-  GDK_PIXBUF_MODULEDIR: ${SNAP}/usr/lib/${SNAPCRAFT_ARCH_TRIPLET}/gdk-pixbuf-2.0/${GDK_PIXBUF_BINARY_VERSION}/loaders/
-  # FIXME: generate loaders.cache file ?!
-  # with: gdk-pixbuf-query-loaders > $libdir/gdk-pixbuf-2.0/$binary_version/loaders.cache
-  # GDK_PIXBUF_MODULE_FILE: ${SNAP}/usr/lib/${SNAPCRAFT_ARCH_TRIPLET}/gdk-pixbuf-2.0/${GDK_PIXBUF_BINARY_VERSION}/loaders.cache
-  GDK_PIXBUF_MODULE_FILE: ${SNAP_USER_COMMON}/gdk-pixbuf-2.0/${GDK_PIXBUF_BINARY_VERSION}/loaders.cache
 
 apps:
   timidity-fat:
@@ -104,20 +94,41 @@ apps:
       - x11
       - opengl
       - removable-media
+      - gsettings
         
 layout:
   /usr/lib/$SNAPCRAFT_ARCH_TRIPLET/alsa-lib:
     bind: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/alsa-lib
-  # /usr/share/midi/freepats:
-    # bind: $SNAP/usr/share/midi/freepats
-  # /usr/share/alsa:
-    # bind: $SNAP/usr/share/alsa
-  # /usr/share/sounds:
-    # bind: $SNAP/usr/share/sounds
-  # /usr/share/tcltk:
-    # bind: $SNAP/usr/share/tcltk
-  /usr/share:
-    bind: $SNAP/usr/share
+  /usr/share/midi/freepats:
+    bind: $SNAP/usr/share/midi/freepats
+  /usr/share/alsa:
+    bind: $SNAP/usr/share/alsa
+  /usr/share/sounds:
+    bind: $SNAP/usr/share/sounds
+  /usr/share/tcltk:
+    bind: $SNAP/usr/share/tcltk
+  /usr/share/X11:
+    bind: $SNAP/usr/share/X11
+  /usr/share/fonts:
+    bind: $SNAP/usr/share/fonts
+  /usr/share/glib-2.0:
+    bind: $SNAP/usr/share/glib-2.0
+  /usr/share/icons:
+    bind: $SNAP/usr/share/icons
+  /usr/share/themes:
+    bind: $SNAP/usr/share/themes
+  /usr/share/menu:
+    bind: $SNAP/usr/share/menu
+  /usr/share/locale:
+    bind: $SNAP/usr/share/locale
+  /usr/share/GConf:
+    bind: $SNAP/usr/share/GConf
+  /usr/share/applications:
+    bind: $SNAP/usr/share/applications
+  /usr/share/zenity:
+    bind: $SNAP/usr/share/zenity
+  # /usr/share:
+    # bind: $SNAP/usr/share
   /usr/lib/$SNAPCRAFT_ARCH_TRIPLET/gdk-pixbuf-2.0:
     bind: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/gdk-pixbuf-2.0
   /etc/fonts:
@@ -212,7 +223,7 @@ parts:
       - freepats
       - fluid-soundfont-gm
       - fluid-soundfont-gs
-      - musescore-general-soundfont
+      # - musescore-general-soundfont
       - opl3-soundfont
       - timgm6mb-soundfont
       - libmodplug1
@@ -240,4 +251,5 @@ parts:
       "launcher.sh" : usr/local/bin/
     stage-packages:
       - zenity
+      - x11-xserver-utils
 
