@@ -21,7 +21,7 @@ else
 fi
 
 while [ $RET -eq 0 ]; do
-  PROCESS=$(zenity --width=500 --height=310 --list \
+  PROCESS=$(zenity --width=550 --height=310 --list \
     --title="Choose the soundfont to launch" \
     --column="cfg name" --column="Description" \
     freepats "Free patch set for MIDI audio synthesis" \

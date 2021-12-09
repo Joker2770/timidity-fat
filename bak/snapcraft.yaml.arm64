@@ -251,4 +251,5 @@ parts:
     stage-packages:
       - zenity
       - x11-xserver-utils
+      - sensible-utils
 
