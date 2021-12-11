@@ -4,7 +4,7 @@ version: '2.15.0' # just for humans, typically '1.2+git' or '1.3.2'
 summary: TiMidity++ is an open source MIDI to WAVE converter and player. # 79 char long summary
 description: |
   **TiMidity++ with more optional soundfonts: freepats, fluidr3_gm,
-  fluidr3_gs, opl3, timgm6mb.**
+  fluidr3_gs, ms_general, opl3, timgm6mb.**
   
   TiMidity++ is a software synthesizer. It can play MIDI files by converting 
   them into PCM waveform data; give it a MIDI data along with digital 
@@ -24,7 +24,6 @@ license: 'GPL-2.0'
 # compression: lzo
 
 architectures:
-  - build-on: i386
   - build-on: amd64
   - build-on: armhf
   - build-on: s390x
