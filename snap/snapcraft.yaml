@@ -24,7 +24,6 @@ license: 'GPL-2.0'
 # compression: lzo
 
 architectures:
-  - build-on: i386
   - build-on: amd64
   - build-on: armhf
   - build-on: s390x
