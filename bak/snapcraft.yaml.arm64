@@ -200,6 +200,7 @@ parts:
 
   # Removing files that are accessible thanks to desktop plug
   desktop-gtk3:
+    plugin: nil
     stage:
       - -./usr/share/fonts/**
 
