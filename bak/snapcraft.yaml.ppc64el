@@ -17,7 +17,7 @@ description: |
 
 grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
-base: core18
+base: core20
 license: 'GPL-2.0'
 
 # this line enables LZO compression for the snap
@@ -211,7 +211,7 @@ parts:
       - tk8.6-dev
       - libjack-dev
       - libmotif-dev
-    configflags:
+    autotools-configure-parameters:
       - --build=powerpc64le-unknown-linux-gnu
       - --prefix=/usr/local
       - --enable-audio=oss,alsa,jack
@@ -230,6 +230,7 @@ parts:
       - fluid-soundfont-gm
       - fluid-soundfont-gs
       # - musescore-general-soundfont
+      - musescore-general-soundfont-lossless
       - opl3-soundfont
       - timgm6mb-soundfont
       - libmodplug1
