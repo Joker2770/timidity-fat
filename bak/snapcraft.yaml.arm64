@@ -195,14 +195,6 @@ parts:
       - libibus-1.0-5
     stage:
       - -./usr/share/fonts/**
-    after:
-      - desktop-gtk3
-
-  # Removing files that are accessible thanks to desktop plug
-  desktop-gtk3:
-    plugin: nil
-    stage:
-      - -./usr/share/fonts/**
 
   timidity-fat:
     after: [alsa-mixin, desktop-gtk2]
