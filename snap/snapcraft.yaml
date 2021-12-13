@@ -24,7 +24,7 @@ license: 'GPL-2.0'
 # compression: lzo
 
 architectures:
-  - build-on: arm64
+  - build-on: ppc64el
 
 plugs:
   ## DISABLED (1 of 4) because gtk2-common-themes only available on amd64
@@ -214,7 +214,7 @@ parts:
       - libjack-dev
       - libmotif-dev
     autotools-configure-parameters:
-      - --build=aarch64-unknown-linux-gnu
+      - --build=powerpc64le-unknown-linux-gnu
       - --prefix=/usr/local
       - --enable-audio=oss,alsa,jack
       - --with-tcl-includes=/usr/include/tcl8.6/
