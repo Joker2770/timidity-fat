@@ -215,9 +215,12 @@ parts:
       - tk8.6-dev
       - libjack-dev
       - libmotif-dev
+      - libogg-dev
+      - libao-dev
+      - libflac-dev
     autotools-configure-parameters:
       - --prefix=/usr/local
-      - --enable-audio=oss,alsa,jack
+      - --enable-audio=oss,alsa,jack,ao,vorbis,flac
       - --with-tcl-includes=/usr/include/tcl8.6/
       - --enable-tcltk
       - --enable-gtk
@@ -249,6 +252,9 @@ parts:
       - libxm4
       - libsm6
       - libice6
+      - libogg0
+      - libao4
+      - libflac8
 
   include-launcher:
     after: [timidity-fat]
