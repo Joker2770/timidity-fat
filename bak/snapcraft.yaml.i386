@@ -253,6 +253,7 @@ parts:
       - libogg0
       - libao4
       - libflac8
+      - libaudio2
 
   include-launcher:
     after: [timidity-fat]
