@@ -214,6 +214,7 @@ parts:
       - libogg-dev
       - libao-dev
       - libflac-dev
+      - libsndio-dev
     autotools-configure-parameters:
       - --build=aarch64-unknown-linux-gnu
       - --prefix=/usr/local
@@ -253,9 +254,9 @@ parts:
       - libao4
       - libflac8
       - libaudio2
+      - libsndio7.0
 
   include-launcher:
-    after: [timidity-fat]
     plugin: dump
     source: "https://github.com/Joker2770/timidity-fat.git"
     source-depth: 1

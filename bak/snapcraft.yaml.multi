@@ -216,6 +216,7 @@ parts:
       - libogg-dev
       - libao-dev
       - libflac-dev
+      - libsndio-dev
     autotools-configure-parameters:
       - --prefix=/usr/local
       - --enable-audio=oss,alsa,jack,ao,vorbis,flac
@@ -254,9 +255,9 @@ parts:
       - libao4
       - libflac8
       - libaudio2
+      - libsndio7.0
 
   include-launcher:
-    after: [timidity-fat]
     plugin: dump
     source: "https://github.com/Joker2770/timidity-fat.git"
     source-depth: 1
