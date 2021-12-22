@@ -193,8 +193,6 @@ parts:
       - xdg-user-dirs
       - ibus-gtk
       - libibus-1.0-5
-    stage:
-      - -./usr/share/fonts/**
 
   timidity-fat:
     after: [alsa-mixin, desktop-gtk2]
