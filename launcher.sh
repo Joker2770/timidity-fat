@@ -29,20 +29,14 @@ while [ $RET -eq 0 ]; do
     fluidr3_gs "Fluid (R3) General MIDI SoundFont (GS)" \
     ms_general "General SoundFont from MuseScore (uncompressed)" \
     opl3 "OPL3 SoundFont that simulates the sound of an OPL3 chip" \
-    timgm6mb "TimGM6mb SoundFont from MuseScore 1.3" \
-    website "https://sourceforge.net/projects/timidity/" )
+    timgm6mb "TimGM6mb SoundFont from MuseScore 1.3" )
   RET=$?
   echo $RET
   if [ "$RET" -eq 0 ]
   then
-     if [ "$PROCESS" = "website" ]
-     then
-        sensible-browser "https://sourceforge.net/projects/timidity/"
-     else
-       if [ "$PROCESS" != "" ]; then
-          cd "$SCRIPT_DIR"
-          ./timidity -$GUI_INTERFACE -c $SNAP/etc/timidity/$PROCESS.cfg
-       fi
-     fi
+    if [ "$PROCESS" != "" ]; then
+      cd "$SCRIPT_DIR"
+      ./timidity -$GUI_INTERFACE -c $SNAP/etc/timidity/$PROCESS.cfg
+    fi
   fi
 done
