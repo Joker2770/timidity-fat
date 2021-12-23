@@ -130,6 +130,8 @@ layout:
     bind: $SNAP/usr/share/applications
   /usr/share/zenity:
     bind: $SNAP/usr/share/zenity
+  /usr/share/sensible-utils:
+    bind: $SNAP/usr/share/sensible-utils
   # /usr/share:
     # bind: $SNAP/usr/share
   /usr/lib/$SNAPCRAFT_ARCH_TRIPLET/gdk-pixbuf-2.0:
