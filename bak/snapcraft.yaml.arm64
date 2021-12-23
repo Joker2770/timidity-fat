@@ -136,12 +136,32 @@ layout:
     bind: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/gdk-pixbuf-2.0
   /usr/lib/$SNAPCRAFT_ARCH_TRIPLET/gtk-2.0/modules:
     bind: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/gtk-2.0/modules
+  /etc/alsa:
+    bind: $SNAP/etc/alsa
   /etc/fonts:
     bind: $SNAP/etc/fonts
+  /etc/gtk-2.0:
+    bind: $SNAP/etc/gtk-2.0
+  /etc/gtk-3.0:
+    bind: $SNAP/etc/gtk-3.0
+  /etc/init.d:
+    bind: $SNAP/etc/init.d
+  /etc/pulse:
+    bind: $SNAP/etc/pulse
+  /etc/sensors.d:
+    bind: $SNAP/etc/sensors.d
   /etc/X11:
     bind: $SNAP/etc/X11
+  /etc/xdg:
+    bind: $SNAP/etc/xdg
   /etc/timidity:
     bind: $SNAP/etc/timidity
+  /etc/libao.conf:
+    bind-file: $SNAP/etc/libao.conf
+  /etc/asound.conf:
+    bind-file: $SNAP/etc/asound.conf
+  /etc/sensors3.conf:
+    bind-file: $SNAP/etc/sensors3.conf
   # /etc:
     # bind: $SNAP/etc
   /usr/local/lib/timidity:
