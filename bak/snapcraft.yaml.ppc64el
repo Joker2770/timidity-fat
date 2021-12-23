@@ -122,8 +122,6 @@ layout:
     bind: $SNAP/usr/share/themes
   /usr/share/menu:
     bind: $SNAP/usr/share/menu
-  /usr/share/locale:
-    bind: $SNAP/usr/share/locale
   /usr/share/GConf:
     bind: $SNAP/usr/share/GConf
   /usr/share/applications:
