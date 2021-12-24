@@ -274,6 +274,12 @@ parts:
     source-type: git
     organize:
       "launcher.sh" : usr/local/bin/
+    prime:
+      - -README*
+      - -LICENSE
+      - -TiMidity++*
+      - -bak
+      - -snap
     stage-packages:
       - zenity
       - x11-xserver-utils
