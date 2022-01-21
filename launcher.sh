@@ -25,7 +25,7 @@
 
 xhost +
 
-SCRIPT_DIR=$( cd ${0%/*} && pwd -P )
+# SCRIPT_DIR=$( cd ${0%/*} && pwd -P )
 
 RET=0
 GUI_INTERFACE=$(zenity --list --width=350 --height=210 --radiolist \
@@ -58,8 +58,8 @@ while [ $RET -eq 0 ]; do
   if [ "$RET" -eq 0 ]
   then
     if [ "$PROCESS" != "" ]; then
-      cd "$SCRIPT_DIR"
-      ./timidity -$GUI_INTERFACE -c $SNAP/etc/timidity/$PROCESS.cfg
+      cd "$HOME"
+      $SNAP/usr/local/bin/timidity -$GUI_INTERFACE -c $SNAP/etc/timidity/$PROCESS.cfg
     fi
   fi
 done
