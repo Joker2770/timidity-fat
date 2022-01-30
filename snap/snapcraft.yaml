@@ -47,7 +47,9 @@ license: 'GPL-2.0+'
 # compression: lzo
 
 architectures:
-  - build-on: ppc64el
+  - build-on: amd64
+  - build-on: armhf
+  - build-on: s390x
 
 plugs:
   ## DISABLED (1 of 4) because gtk2-common-themes only available on amd64
@@ -247,7 +249,6 @@ parts:
       - libflac-dev
       - libsndio-dev
     autotools-configure-parameters:
-      - --build=powerpc64le-unknown-linux-gnu
       - --prefix=/usr/local
       - --enable-audio=oss,alsa,jack,ao,vorbis,flac
       - --with-tcl-includes=/usr/include/tcl8.6/
