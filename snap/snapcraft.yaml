@@ -27,7 +27,7 @@ version: '2.15.0' # just for humans, typically '1.2+git' or '1.3.2'
 summary: TiMidity++ is an open source MIDI to WAVE converter and player. # 79 char long summary
 description: |
   **TiMidity++ with more optional soundfonts: freepats, fluidr3_gm,
-  fluidr3_gs, opl3, timgm6mb.**
+  fluidr3_gs, ms_general, opl3, timgm6mb.**
   
   TiMidity++ is a software synthesizer. It can play MIDI files by converting 
   them into PCM waveform data; give it a MIDI data along with digital 
@@ -40,14 +40,14 @@ description: |
 
 grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
-base: core18
+base: core20
 license: 'GPL-2.0+'
 
 # this line enables LZO compression for the snap
 # compression: lzo
 
 architectures:
-  - build-on: i386
+  - build-on: arm64
 
 plugs:
   ## DISABLED (1 of 4) because gtk2-common-themes only available on amd64
@@ -246,7 +246,8 @@ parts:
       - libao-dev
       - libflac-dev
       - libsndio-dev
-    configflags:
+    autotools-configure-parameters:
+      - --build=aarch64-unknown-linux-gnu
       - --prefix=/usr/local
       - --enable-audio=oss,alsa,jack,ao,vorbis,flac
       - --with-tcl-includes=/usr/include/tcl8.6/
@@ -267,7 +268,7 @@ parts:
       - fluid-soundfont-gm
       - fluid-soundfont-gs
       # - musescore-general-soundfont
-      # - musescore-general-soundfont-lossless
+      - musescore-general-soundfont-lossless
       - opl3-soundfont
       - timgm6mb-soundfont
       - libmodplug1
@@ -287,7 +288,7 @@ parts:
       - libao4
       - libflac8
       - libaudio2
-      - libsndio6.1
+      - libsndio7.0
 
   include-launcher:
     plugin: dump
