@@ -39,13 +39,12 @@ description: |
   GNU general public license.
 
   example of converter:
-     `timidity-fat.cli input.mid -OF -o out.FLAC -c $SNAP/etc/timidity/freepats.cfg`
+  `timidity-fat.cli input.mid -OF -o out.FLAC -c $SNAP/etc/timidity/freepats.cfg`
 
   more usages:
-     `timidity-fat.cli -h`
+  `timidity-fat.cli -h`
 
   build details:
-
   https://github.com/Joker2770/timidity-fat
 
 grade: stable # must be 'stable' to release into candidate/stable channels
