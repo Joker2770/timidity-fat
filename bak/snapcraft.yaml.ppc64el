@@ -111,6 +111,7 @@ apps:
       - opengl
       - removable-media
       - gsettings
+      - locale-control
   cli:
     command-chain: ["snap/command-chain/alsa-launch", "bin/desktop-launch"]
     command: usr/local/bin/timidity
@@ -130,6 +131,7 @@ apps:
       - opengl
       - removable-media
       - gsettings
+      - locale-control
         
 layout:
   /usr/lib/$SNAPCRAFT_ARCH_TRIPLET/alsa-lib:
